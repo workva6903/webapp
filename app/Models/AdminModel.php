@@ -5,7 +5,7 @@ use CodeIgniter\Model;
 class AdminModel extends Model
 {
     protected $table      = 'admin';
-    protected $allowedFields = ['id', 'firstname', 'lastname', 'email', 'phone', 'password'];
+    protected $allowedFields = ['id', 'firstname', 'lastname', 'email', 'phone', 'password','image'];
     protected $beforeInsert = ['beforeInsert'];
     protected $beforeUpdate = ['beforeUpdate'];
     protected $primaryKey = 'id';
@@ -26,6 +26,4 @@ class AdminModel extends Model
        }
        return $data;
     }
-
-
 }

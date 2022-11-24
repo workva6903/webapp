@@ -69,7 +69,9 @@
                         <td><?php echo $val['lastname']?></td>
                         <td><?php echo $val['email']?></td>
                         <td><?php echo $val['phone']?></td>
-                        <td><a href="/editUser/<?php echo $val['id']?>">Edit</a> | <a onclick="return confirm('Did you want to delete')" href="/deleteUser/<?php echo $val['id']?>">Delete</a></td>
+                        <td><a href="/editUser/<?php echo $val['id']?>">Edit</a> | <a onclick="return confirm('Did you want to delete')" href="/deleteUser/<?php echo $val['id']?>">Delete</a>
+                        | <a href="/upload/<?php echo $val['id']?>">Upload Image</a>
+                    </td>
                     </tr>
                     <?php  } ?>
                    
