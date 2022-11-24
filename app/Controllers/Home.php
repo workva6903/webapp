@@ -80,12 +80,30 @@ class Home extends BaseController
         // print_r($data); 
         return view('dashboard', $data);
     }
-    public function editUser()
+    public function editUser($id)
     {
-        // $model = new AdminModel();
-        // $data['usersdata'] = $model->findAll();
+        $model = new AdminModel();
+        if ($this->request->getMethod() == 'post') {
+            $newData = array(
+                'firstname' => $this->request->getVar('firstname'),
+                'lastname' => $this->request->getVar('lastname'),
+                'email' => $this->request->getVar('email'),
+            );
+            if ($model->update($id, $newData)) {
+                return redirect()->to('dashboard');
+            }
+        }
+        $data['singleuser'] = $model->where('id' , $id)
+        ->first();
         // print_r($data); 
-        return view('editUser');
+        return view('editUser' , $data);
+    }
+    public function deleteUser($id)
+    {
+        $model = new AdminModel();
+       if($model->where('id' , $id)->delete()){
+        return redirect()->to('dashboard');
+       }
     }
     private function setUserSession($admin)
     {

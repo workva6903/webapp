@@ -40,6 +40,10 @@ $routes->match(['get', 'post'] , 'signup', 'Home::signup', ['filter' => 'noauth'
 $routes->match(['get', 'post'] , 'editUser/(:any)', 'Home::editUser/$1', ['filter' => 'auth']);
 // $routes->get('/signup', 'Home::signup', ['filter' => 'noauth']);
 $routes->get('/dashboard', 'Home::dashboard', ['filter' => 'auth']);
+$routes->get('deleteUser/(:any)', 'Home::deleteUser/$1', ['filter' => 'auth']);
+
+
+
 $routes->get('logout', 'Home::logout');
 
 /*

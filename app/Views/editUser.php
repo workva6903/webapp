@@ -25,7 +25,7 @@
     <link rel="icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/favicon.ico">
     <meta name="theme-color" content="#7952b3">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/dist/mdb5/standard/core.min.css">
+    <!-- <link rel="stylesheet" href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/dist/mdb5/standard/core.min.css"> -->
     <link rel='stylesheet' id='roboto-subset.css-css' href='https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/mdb5/fonts/roboto-subset.css?ver=3.9.0-update.5' type='text/css' media='all' />
     <link rel="shortcut icon" href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/favicon.ico" />
 
@@ -73,19 +73,19 @@
                                                 </div>
                                             </div>
                                         <?php endif  ?>
-                                        <form class="mx-1 mx-md-4" method="post" action="/editUser">
+                                        <form class="mx-1 mx-md-4" method="post" >
 
                                             <div class="d-flex flex-row align-items-center mb-4">
                                                 <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                                 <div class="form-outline flex-fill mb-0">
-                                                    <input type="text" id="form3Example1c" class="form-control" name="firstname" value="" />
+                                                    <input type="text" id="form3Example1c" class="form-control" name="firstname" value="<?php echo $singleuser['firstname']  ?>" />
                                                     <label class="form-label" for="form3Example1c">First  Name</label>
                                                 </div>
                                             </div>
                                             <div class="d-flex flex-row align-items-center mb-4">
                                                 <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                                 <div class="form-outline flex-fill mb-0">
-                                                    <input type="text" id="form3Example1c" class="form-control" name="lastname" value="" />
+                                                    <input type="text" id="form3Example1c" class="form-control" name="lastname" value="<?php echo $singleuser['lastname']  ?>" />
                                                     <label class="form-label" for="form3Example1c">Last  Name</label>
                                                 </div>
                                             </div>
@@ -93,24 +93,8 @@
                                             <div class="d-flex flex-row align-items-center mb-4">
                                                 <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                                 <div class="form-outline flex-fill mb-0">
-                                                    <input type="email" id="form3Example3c" class="form-control" name="email" value="" />
+                                                    <input type="email" id="form3Example3c" class="form-control" name="email" value="<?php echo $singleuser['email']  ?>" />
                                                     <label class="form-label" for="form3Example3c">Your Email</label>
-                                                </div>
-                                            </div>
-
-                                            <div class="d-flex flex-row align-items-center mb-4">
-                                                <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                                                <div class="form-outline flex-fill mb-0">
-                                                    <input type="password" id="form3Example4c" class="form-control" name="password" value="" />
-                                                    <label class="form-label" for="form3Example4c">Password</label>
-                                                </div>
-                                            </div>
-
-                                            <div class="d-flex flex-row align-items-center mb-4">
-                                                <i class="fas fa-key fa-lg me-3 fa-fw"></i>
-                                                <div class="form-outline flex-fill mb-0">
-                                                    <input type="password" id="form3Example4cd" class="form-control" name="passconf" value="" />
-                                                    <label class="form-label" for="form3Example4cd">Repeat your password</label>
                                                 </div>
                                             </div>
                                             <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
