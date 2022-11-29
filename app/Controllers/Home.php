@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Models\AdminModel;
 use App\Models\ImageUploadModel;
 use CodeIgniter\Files\File;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class Home extends BaseController
 {
@@ -39,6 +41,11 @@ class Home extends BaseController
             }
         }
         return view('login', $data);
+    }
+    public function HomePage(){
+        $data['main_content'] = 'HomePage';
+
+        return view('includes/template',$data);
     }
     public function signup()
     {
@@ -156,6 +163,39 @@ class Home extends BaseController
         session()->set($data);
         return true;
     }
+    public function exportuserdata()
+    {
+        $admin_model = new AdminModel();
+        $fileName = 'employees.xlsx';
+        $spreadsheet = new Spreadsheet();
+        $employees = $admin_model->findAll();
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->setCellValue('A1', 'id');
+        $sheet->setCellValue('B1', 'First name');
+        $sheet->setCellValue('C1', 'Last name');
+        $sheet->setCellValue('D1', 'Email');
+        $rows = 2;
+        foreach ($employees as $val) {
+            $sheet->setCellValue('A' . $rows, $val['id']);
+            $sheet->setCellValue('B' . $rows, $val['firstname']);
+            $sheet->setCellValue('C' . $rows, $val['lastname']);
+            $sheet->setCellValue('D' . $rows, $val['email']);
+            $rows++;
+        }
+        $writer = new Xlsx($spreadsheet);
+        $writer->save($fileName);
+        header("Content-Type: application/vnd.ms-excel");
+        header('Content-Disposition: attachment; filename="' . basename($fileName) . '"');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate');
+        header('Pragma: public');
+        header('Content-Length:' . filesize($fileName));
+        flush();
+        readfile($fileName);
+        exit;
+    }
+
+
     public function logout(){
         session()->destroy();
         return redirect()->to('/');

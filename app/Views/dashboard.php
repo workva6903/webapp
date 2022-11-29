@@ -47,7 +47,7 @@
                     <h6>Welcome <?php  echo $data['firstname'] . ' ' . $data['lastname']  ?>  | <a href="/logout">Logout</a></h6>
                 </div>
             </div>
-            <h2>User Data</h2>
+            <h2>User Data</h2> <a href="<?php echo base_url() ?>/exportuserdata">Excell Export</a>
             <table class="table table-dark">
                 <thead>
                     <tr>

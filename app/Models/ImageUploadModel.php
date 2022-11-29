@@ -8,4 +8,4 @@ class ImageUploadModel extends Model
     protected $primaryKey = 'id';
   
 }
-?>
+?>  
