@@ -1,93 +1,81 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-  <meta name="generator" content="Hugo 0.84.0">
-  <title>Signin Template · Bootstrap v5.0</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page Design</title>
 
-  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
+    <!--bootstrap links-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <!--css link-->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <!--google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!--owl slider link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
-
-
-  <!-- Bootstrap core CSS -->
-  <link href="https://getbootstrap.com/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-  <!-- Favicons -->
-  <link rel="apple-touch-icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-  <link rel="icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-  <link rel="manifest" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/manifest.json">
-  <link rel="mask-icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
-  <link rel="icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/favicon.ico">
-  <meta name="theme-color" content="#7952b3">
-
-
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
-    }
-
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-  </style>
-
-
-  <!-- Custom styles for this template -->
-  <link href="https://getbootstrap.com/docs/5.0/examples/sign-in/signin.css" rel="stylesheet">
 </head>
 
-<body class="text-center">
+<body>
 
-  <main class="form-signin">
-    <form method="POST" action="/">
-      <?php if (isset($validation)) :  ?>
-        <div class="col-12">
-          <div class="alert alert-danger" role="alert">
-            <?= $validation->listErrors()   ?>
-          </div>
+    <!--signup section start hare-->
+    <section class="Signup_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="Signup_textsc">
+                        <div class="Signup_lefttxtbox">
+                            <a href="<?php echo base_url('/')  ?>">
+                                <img src="<?php echo base_url('images/15.jpg')  ?>" alt="loginimg" class="Signup_img">
+                            </a>
+                        </div>
+                        <div class="Signup_righttxtbox">
+                            <h3>Login</h3>
+                            <?php if (isset($validation)) :  ?>
+                                <div class="col-12">
+                                    <div class="alert alert-danger" role="alert">
+                                        <?= $validation->listErrors()   ?>
+                                    </div>
+                                </div>
+                            <?php endif  ?>
+                            <?php if (isset($Flash_message)) :  ?>
+                                <div class="col-12">
+                                    <div class="alert alert-danger" role="alert">
+                                        Enter Correct Username and Password
+                                    </div>
+                                </div>
+                            <?php endif  ?>
+                            <form class="Signup_formsc" method="POST" action="">
+                                <input type="text" placeholder="Email" class="Signup_input" name="email"  style="width:75%">
+                                <div class="Signup_passwordbox">
+                                    <input type="password" placeholder="Password" class="Signup_input1" name="password" >
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="Signup_passwordicon" fill="currentColor" class="bi bi-eye-slash" viewBox="0 0 16 16">
+                                        <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7.028 7.028 0 0 0-2.79.588l.77.771A5.944 5.944 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.134 13.134 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755-.165.165-.337.328-.517.486l.708.709z" />
+                                        <path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829l.822.822zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829z" />
+                                        <path d="M3.35 5.47c-.18.16-.353.322-.518.487A13.134 13.134 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7.029 7.029 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12-.708.708z" />
+                                    </svg>
+                                </div>
+                                <button type="submit" class="Signup_formbtn">Login</button>
+                            </form>
+                            <h5><a href="<?php echo base_url('signup')  ?>">Need An Account <span></span></a></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      <?php endif  ?>
+    </section>
+    <!--signup section end hare-->
 
-      <img class="mb-4" src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-      <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-      <?php if (isset($Flash_message)) :  ?>
-        <div class="col-12">
-          <div class="alert alert-danger" role="alert">
-           Enter Correct Username and Password
-          </div>
-        </div>
-      <?php endif  ?>
-      <div class="form-floating">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
-        <label for="floatingInput">Email address</label>
-      </div>
-      <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
-        <label for="floatingPassword">Password</label>
-      </div>
-
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
-      </div>
-      <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-      <div class="mt-3"> <a href="/signup" class="text-decoration-none text-dark">Sign Up</a></div>
-      <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
-    </form>
-  </main>
-
+    <!--bootstrap links-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!--owl slider link-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
 
 </body>
