@@ -44,9 +44,13 @@ $routes->match(['get', 'post'] , 'upload/(:any)', 'Home::upload/$1', ['filter' =
 $routes->get('/dashboard', 'Home::dashboard', ['filter' => 'auth']);
 $routes->get('deleteUser/(:any)', 'Home::deleteUser/$1', ['filter' => 'auth']);
 $routes->match(['get', 'post'], 'exportuserdata', 'Home::exportuserdata', ['filter' => 'auth']);
-
-
 $routes->get('logout', 'Home::logout');
+
+/* ..........................Admin Routers ............................ */
+$routes->match(['get', 'post'] , '/admin', 'Admin::index', ['filter' => 'noauth']);
+$routes->match(['get', 'post'] , '/admin/dashboard', 'Admin::dashboard', ['filter' => 'noauth']);
+
+
 
 /*
  * --------------------------------------------------------------------
