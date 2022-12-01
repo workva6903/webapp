@@ -26,6 +26,17 @@
             <h6>100</h6>
         </div>
     </div>
+    <div class="graph_section">
+        <div class="graph_box">
+            <!-- <figure class="highcharts-figure">
+                                    <div id="container"></div>
+                                </figure> -->
+            <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+        </div>
+        <div class="graph_box1">
+            <canvas id="myChart1" style="width:100%;height:400px;"></canvas>
+        </div>
+    </div>
     <div class="table_box">
         <h3>Recent Order</h3>
         <table class="table table-bordered">

@@ -4,9 +4,8 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Admin extends Migration
+class Category extends Migration
 {
-    
     public function up()
     {
         $this->forge->addField([
@@ -15,25 +14,12 @@ class Admin extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'name' => [
+            'cat_name' => [
                 'type'       => 'VARCHAR',
-                'constraint' => '10',
-            ],
-            'email' => [
-                'type' => 'VARCHAR',
-                'constraint' => '50',
-            ],
-            'phone' => [
-                'type' => 'VARCHAR',
                 'constraint' => '100',
             ],
-            'password' => [
-                'type' => 'VARCHAR',
-                'constraint' => '100',
-            ],
-            'user_type' => [
-                'type' => 'ENUM("admin" , "user")',
-                'default' => 'user',
+            'cat_image' => [
+                'type' => 'text',
                 'null' => false,
             ],
             'created_at' => [
@@ -43,14 +29,15 @@ class Admin extends Migration
             'updated_at' => [
                 'type' => 'DATETIME',
                 // 'null' => false,
-            ],
+            ]
+           
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('admin', true);
+        $this->forge->createTable('category', true);
     }
 
     public function down()
     {
-        $this->forge->dropTable('admin', true);
+        $this->forge->dropTable('category', true);
     }
 }

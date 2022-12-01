@@ -4,9 +4,8 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Admin extends Migration
+class Product extends Migration
 {
-    
     public function up()
     {
         $this->forge->addField([
@@ -15,26 +14,37 @@ class Admin extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'name' => [
+            'product_name' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '10',
             ],
-            'email' => [
+            'product_desc' => [
                 'type' => 'VARCHAR',
                 'constraint' => '50',
             ],
-            'phone' => [
-                'type' => 'VARCHAR',
-                'constraint' => '100',
-            ],
-            'password' => [
-                'type' => 'VARCHAR',
-                'constraint' => '100',
-            ],
-            'user_type' => [
-                'type' => 'ENUM("admin" , "user")',
-                'default' => 'user',
+            'qty' => [
+                'type' => 'INT',
                 'null' => false,
+            ],
+            'mrp' => [
+                'type' => 'DECIMAL',
+                'constraint' => '10,2',
+                'null' => false,
+                'default' => 0.00,
+            ],
+            'selling_price' => [
+                'type' => 'DECIMAL',
+                'constraint' => '10,2',
+                'null' => false,
+                'default' => 0.00,
+            ],
+            'product_image' => [
+                'type' => 'text',
+                'null' => false,
+            ],
+            'product_cat_id' => [
+                'type'      => 'INT',
+                'unsigned'  => true,
             ],
             'created_at' => [
                 'type' => 'DATETIME',
@@ -44,13 +54,14 @@ class Admin extends Migration
                 'type' => 'DATETIME',
                 // 'null' => false,
             ],
+
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('admin', true);
+        $this->forge->createTable('product');
     }
 
     public function down()
     {
-        $this->forge->dropTable('admin', true);
+        $this->forge->dropTable('product');
     }
 }

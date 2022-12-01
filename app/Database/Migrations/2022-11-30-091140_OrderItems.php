@@ -4,9 +4,8 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Admin extends Migration
+class OrderItems extends Migration
 {
-    
     public function up()
     {
         $this->forge->addField([
@@ -15,25 +14,16 @@ class Admin extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'name' => [
+            '	item_name' => [
                 'type'       => 'VARCHAR',
-                'constraint' => '10',
+                'constraint' => '225',
             ],
-            'email' => [
-                'type' => 'VARCHAR',
-                'constraint' => '50',
+            'item_qty' => [
+                'type' => 'INT',
+                'null' => false,
             ],
-            'phone' => [
-                'type' => 'VARCHAR',
-                'constraint' => '100',
-            ],
-            'password' => [
-                'type' => 'VARCHAR',
-                'constraint' => '100',
-            ],
-            'user_type' => [
-                'type' => 'ENUM("admin" , "user")',
-                'default' => 'user',
+            'order_id' => [
+                'type' => 'INT',
                 'null' => false,
             ],
             'created_at' => [
@@ -44,13 +34,14 @@ class Admin extends Migration
                 'type' => 'DATETIME',
                 // 'null' => false,
             ],
+           
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('admin', true);
+        $this->forge->createTable('order_items', true);
     }
 
     public function down()
     {
-        $this->forge->dropTable('admin', true);
+        $this->forge->dropTable('order_items', true);
     }
 }

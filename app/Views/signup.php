@@ -10,8 +10,8 @@
     <!--bootstrap links-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
     <!--css link-->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="<?php echo base_url()  ?>/css/style.css">
+    <link rel="stylesheet" href="<?php echo base_url()  ?>/css/responsive.css">
     <!--google font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,8 +51,8 @@
                                 </div>
                             <?php endif  ?>
                             <form class="Signup_formsc" method="post" action="/signup">
-                                <input type="text" placeholder="User Name" class="Signup_input" name="firstname" value="<?= set_value('firstname')  ?>">
-                                <input type="text" placeholder="User Name" class="Signup_input" name="lastname" value="<?= set_value('lastname')  ?>">
+                                <input type="text" placeholder="First Name" class="Signup_input" name="firstname" value="<?= set_value('firstname')  ?>">
+                                <input type="text" placeholder="Last Name" class="Signup_input" name="lastname" value="<?= set_value('lastname')  ?>">
                                 <input type="email" placeholder="Email" class="Signup_input" name="email" value="<?= set_value('email')  ?>">
                                 <input type="password" placeholder="Password" class="Signup_input" name="password" value="<?= set_value('password')  ?>">
                                 <input type="password" placeholder="Password" class="Signup_input" name="passconf" value="<?= set_value('passconf')  ?>">

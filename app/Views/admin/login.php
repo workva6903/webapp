@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,9 +15,10 @@
     <!--css link-->
     <link rel="stylesheet" href="<?php echo base_url() ?>/admin_css/style.css">
     <!--owl slider link-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
-   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
 </head>
+
 <body>
 
     <section class="login_section">
@@ -25,24 +27,41 @@
                 <div class="col-12">
                     <div class="login_box">
                         <h3>Login</h3>
-                        <form class="login_form">
-                            <input type="text" placeholder="Username" class="login_formele" required>
-                            <input type="password" placeholder="password" class="login_formele" required>
-                            <a href="index.html"><div class="login_btnsc">
-                                <button class="login_btn">Login</button>
-                            </div></a>
+                        <?php if (isset($validation)) :  ?>
+                            <div class="col-12">
+                                <div class="alert alert-danger" role="alert">
+                                    <?= $validation->listErrors()   ?>
+                                </div>
+                            </div>
+                        <?php endif  ?>
+                        <?php if (isset($Flash_message)) :  ?>
+                            <div class="col-12">
+                                <div class="alert alert-danger" role="alert">
+                                    Enter Correct Username and Password
+                                </div>
+                            </div>
+                        <?php endif  ?>
+                        <form class="login_form" method="post" action="">
+                            <input type="email" name="email" placeholder="Username" class="login_formele">
+                            <input type="password" name="password" placeholder="password" class="login_formele">
+                            <a href="index.html">
+                                <div class="login_btnsc">
+                                    <button class="login_btn" type="submit">Login</button>
+                                </div>
+                            </a>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-    </section> 
+    </section>
 
-    <!--bootstrap links-->      
+    <!--bootstrap links-->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <!--owl slider link-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
 </body>
+
 </html>

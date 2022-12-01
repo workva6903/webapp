@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Admin extends Migration
+class User extends Migration
 {
     
     public function up()
@@ -31,11 +31,6 @@ class Admin extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => '100',
             ],
-            'user_type' => [
-                'type' => 'ENUM("admin" , "user")',
-                'default' => 'user',
-                'null' => false,
-            ],
             'created_at' => [
                 'type' => 'DATETIME',
                 // 'null' => false,
@@ -43,14 +38,14 @@ class Admin extends Migration
             'updated_at' => [
                 'type' => 'DATETIME',
                 // 'null' => false,
-            ],
+            ]
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('admin', true);
+        $this->forge->createTable('user', true);
     }
 
     public function down()
     {
-        $this->forge->dropTable('admin', true);
+        $this->forge->dropTable('user', true);
     }
 }
